@@ -4,17 +4,15 @@
 
 ## 中文
 
-Monster Respawn Timer 是一个 R.E.P.O. 的 BepInEx HUD 模组。它会在游戏内显示当前关卡会出现的怪物、怪物什么时候复活，以及哪些事件正在影响怪物的复活时间。
+Monster Respawn Timer 是一个用于 R.E.P.O. 的 BepInEx HUD 模组。它会在游戏内显示当前关卡会出现哪些怪物、怪物距离复活还有多久，以及哪些事件正在影响复活时间。这个模组只负责显示信息，不会改变怪物复活逻辑，也不会调整游戏难度。
 
 ![Monster Respawn Timer HUD](assets/pic1.png)
 
 ### 显示内容
 
-- 右下角显示当前关卡的怪物名称。
-- 橙色数字表示这个怪物还有多久复活。
-- 蓝色数字会短暂闪烁，表示游戏刚刚让怪物复活时间减少了多少秒，例如打碎物品、使用武器、valuable items 发出的声音、激活或完成 extraction point 等事件。
-- Gnome 和 Banger 这类成组出现的怪物会放在同一行，但每个怪物仍然保留独立的复活计时。
-- 观战时会隐藏 HUD，避免挡住原本的观战界面。
+- 右下角显示当前关卡会出现的怪物。
+- 橙色数字表示该怪物距离复活还有多久。
+- 蓝色数字会短暂闪烁，表示刚刚怪物复活时间减少了多少秒（例如打碎物品、使用武器、valuable items 发出的声音、激活或完成 extraction point 等）。
 
 ![Respawn timer reduction example](assets/pic2.png)
 
@@ -32,21 +30,19 @@ BepInEx/plugins/
 
 ### 说明
 
-这个模组只显示游戏已经存在的怪物状态和复活计时，不会改变怪物生成、死亡、despawn 或复活逻辑。
+这个模组只读取并显示游戏已经存在的怪物状态和复活计时，不会改变怪物生成、死亡、despawn 或复活逻辑。
 
 ## English
 
-Monster Respawn Timer is a BepInEx HUD mod for R.E.P.O. It shows which monsters can appear in the current level, when dead or despawned monsters will respawn, and which events are changing those respawn timers.
+Monster Respawn Timer is a lightweight BepInEx HUD mod for R.E.P.O. It shows the monster lineup for the current level, tracks how long each monster has until it respawns, and highlights events that reduce respawn time. The mod is informational only: it does not change monster respawn logic or game difficulty.
 
 ![Monster Respawn Timer HUD](assets/pic1.png)
 
 ### What It Shows
 
-- Monster names for the current level in the bottom-right HUD.
-- Orange numbers show how long a monster has until it respawns.
-- Blue numbers briefly flash when the game reduces a monster respawn timer, such as from broken objects, weapon use, valuable item noise, or extraction point events.
-- Swarm monsters such as Gnome and Banger are grouped on one row, while each monster still keeps its own independent respawn timer.
-- The HUD hides while spectating so it does not cover the default spectator UI.
+- The monsters that can appear in the current level, shown in the bottom-right HUD.
+- Orange numbers show how long that monster has until it respawns.
+- Blue numbers briefly flash when a respawn timer has just been reduced, such as from broken objects, weapon use, valuable item noise, or extraction point events.
 
 ![Respawn timer reduction example](assets/pic2.png)
 
@@ -64,4 +60,4 @@ If you download from GitHub, the built DLL is available at `dist/MonsterRespawnT
 
 ### Notes
 
-This mod only displays monster state and respawn timer information that already exists in the game. It does not change monster spawning, death, despawn, or respawn logic.
+This mod only reads and displays monster state and respawn timer information that already exists in the game. It does not change monster spawning, death, despawn, or respawn logic.
