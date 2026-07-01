@@ -1,0 +1,28 @@
+# .NET build output
+bin/
+obj/
+
+# Local game reference assemblies
+reference
+reference/
+
+# Build artifacts that are not release files
+*.pdb
+*.deps.json
+*.zip
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+.netrwhist
+
+# macOS files
+.DS_Store
+._*
+
+# Local cache and logs
+.cache/
+cache/
+.superpowers/
+*.log
