@@ -1,0 +1,9 @@
+{
+  "name": "Monster_Respawn_Timer",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/fangjx114514/REPO-MonsterRespawnTimer",
+  "description": "Shows current monsters and monster respawn timers in the R.E.P.O. in-game HUD.",
+  "dependencies": [
+    "BepInEx-BepInExPack-5.4.2305"
+  ]
+}
