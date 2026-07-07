@@ -1,6 +1,6 @@
 {
   "name": "Monster_Respawn_Timer",
-  "version_number": "1.0.1",
+  "version_number": "1.0.2",
   "website_url": "https://github.com/fangjx114514/REPO-MonsterRespawnTimer",
   "description": "Displays the current level's monster lineup and respawn timers in the R.E.P.O. HUD.",
   "dependencies": [
