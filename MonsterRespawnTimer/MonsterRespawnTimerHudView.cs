@@ -264,7 +264,7 @@ internal sealed class MonsterRespawnTimerHudView
 
         if (timerTexts.Count == 0)
         {
-            return string.Empty;
+            return string.IsNullOrEmpty(flashText) ? string.Empty : FormatFlash(flashText);
         }
 
         if (string.IsNullOrEmpty(flashText))
