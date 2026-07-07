@@ -8,6 +8,7 @@ var tests = new (string Name, Action Body)[]
     ("groups_swarm_enemies_by_internal_name", GroupsSwarmEnemiesByInternalName),
     ("places_flash_before_rightmost_timer", PlacesFlashBeforeRightmostTimer),
     ("shows_flash_only_for_sudden_respawn_timer_decrease", ShowsFlashOnlyForSuddenRespawnTimerDecrease),
+    ("shows_flash_when_sudden_respawn_completion_removes_timer", ShowsFlashWhenSuddenRespawnCompletionRemovesTimer),
     ("does_not_flash_when_missing_respawning_enemy_returns", DoesNotFlashWhenMissingRespawningEnemyReturns),
     ("respects_flash_threshold_boundary", RespectsFlashThresholdBoundary),
     ("reset_clears_slots_and_flash_state", ResetClearsSlotsAndFlashState),
@@ -164,6 +165,39 @@ static void ShowsFlashOnlyForSuddenRespawnTimerDecrease()
     }, elapsedSeconds: 1f);
 
     AssertEqual("", tracker.Slots[0].FlashText, "flash expires");
+}
+
+static void ShowsFlashWhenSuddenRespawnCompletionRemovesTimer()
+{
+    var tracker = new EnemySlotTracker();
+
+    tracker.Update(new[]
+    {
+        new EnemySnapshot("enemy-0", "Enemy 0", false, 30f),
+        new EnemySnapshot("enemy-1", "Enemy 1", false, 18f),
+    }, elapsedSeconds: 0f);
+
+    tracker.Update(new[]
+    {
+        new EnemySnapshot("enemy-0", "Enemy 0", true, 0f),
+        new EnemySnapshot("enemy-1", "Enemy 1", true, 0f),
+    }, elapsedSeconds: 0.25f);
+
+    AssertEqual("-30s", tracker.Slots[0].FlashText, "enemy 0 forced respawn flash");
+    AssertEqual("-30s", tracker.Slots[0].StatusText, "enemy 0 status without timer");
+    AssertEqual("-18s", tracker.Slots[1].FlashText, "enemy 1 forced respawn flash");
+    AssertEqual("-18s", tracker.Slots[1].StatusText, "enemy 1 status without timer");
+
+    tracker.Update(new[]
+    {
+        new EnemySnapshot("enemy-0", "Enemy 0", true, 0f),
+        new EnemySnapshot("enemy-1", "Enemy 1", true, 0f),
+    }, elapsedSeconds: 1f);
+
+    AssertEqual("", tracker.Slots[0].FlashText, "enemy 0 forced respawn flash expires");
+    AssertEqual("", tracker.Slots[0].StatusText, "enemy 0 forced respawn status expires");
+    AssertEqual("", tracker.Slots[1].FlashText, "enemy 1 forced respawn flash expires");
+    AssertEqual("", tracker.Slots[1].StatusText, "enemy 1 forced respawn status expires");
 }
 
 static void DoesNotFlashWhenMissingRespawningEnemyReturns()

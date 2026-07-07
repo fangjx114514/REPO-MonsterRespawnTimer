@@ -177,7 +177,7 @@ internal sealed class EnemySlotState
     {
         if (timerTexts.Count == 0)
         {
-            return string.Empty;
+            return flashText;
         }
 
         if (string.IsNullOrEmpty(flashText))
@@ -256,9 +256,10 @@ internal sealed class EnemyMemberState
         IsSpawned = snapshot.IsSpawned;
         RespawnTimer = Math.Max(0f, snapshot.RespawnTimer);
 
-        if (!IsSpawned && wasRespawning)
+        if (wasRespawning)
         {
-            var actualDecrease = previousTimer - RespawnTimer;
+            var currentTimer = IsSpawned ? 0f : RespawnTimer;
+            var actualDecrease = previousTimer - currentTimer;
             var extraDecrease = actualDecrease - Math.Max(0f, elapsedSeconds);
             if (extraDecrease >= EnemySlotTracker.SuddenDecreaseThresholdSeconds)
             {

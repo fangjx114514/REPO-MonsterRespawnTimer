@@ -86,7 +86,7 @@ internal static class PluginMetadata
 {
     public const string Guid = "fangjx114514.monsterrespawntimer";
     public const string Name = "Monster Respawn Timer";
-    public const string Version = "1.0.0";
+    public const string Version = "1.0.1";
 }
 
 [HarmonyPatch]

@@ -3,6 +3,7 @@ bin/
 obj/
 
 # Local game reference assemblies
+Managed/
 reference
 reference/
 

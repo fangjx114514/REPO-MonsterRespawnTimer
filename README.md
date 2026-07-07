@@ -30,9 +30,13 @@ BepInEx/plugins/
 
 这个模组只读取并显示游戏已经存在的怪物状态和复活计时，不会改变怪物生成、死亡、despawn 或复活逻辑。
 
+### 致谢
+
+图标由 Enyi 绘制。
+
 ## English
 
-Monster Respawn Timer is a lightweight BepInEx HUD mod for R.E.P.O. It shows the monster lineup for the current level, tracks how long each monster has until it respawns, and highlights events that reduce respawn time. 
+Monster Respawn Timer is a lightweight BepInEx HUD mod for R.E.P.O. It shows the monster lineup for the current level, tracks how long each monster has until it respawns, and highlights events that reduce respawn time.
 
 ![Monster Respawn Timer HUD](https://raw.githubusercontent.com/fangjx114514/REPO-MonsterRespawnTimer/main/assets/pic1.png)
 
@@ -57,3 +61,7 @@ BepInEx/plugins/
 ### Notes
 
 This mod only reads and displays monster state and respawn timer information that already exists in the game. It does not change monster spawning, death, despawn, or respawn logic.
+
+### Credits
+
+Icon artwork by Enyi.
